@@ -7,6 +7,13 @@ try {
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  webpack: (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      'date-fns': 'date-fns/esm',
+    };
+    return config;
+  },
   npmOptions: {
     legacyPeerDeps: true,
   },
